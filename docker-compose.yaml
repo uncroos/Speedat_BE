@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+  speedat-auth:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_HOST=localhost
+      - DATABASE_PORT=5432
+      - DATABASE_NAME=speedat
+      - DATABASE_USER=speedat
+      - DATABASE_PASSWORD=tlqkf12
+      - JWT_SECRET=wrkxek
+      - SMTP_HOST=smtp.zoho.com
+      - SMTP_PORT=465
+      - SMTP_USER=verify@speedat.site
+      - SMTP_PASSWORD=js9xUc!g
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: speedat
+      POSTGRES_PASSWORD: wrkxek
+      POSTGRES_DB: speedat
